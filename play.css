@@ -1,0 +1,98 @@
+.steelpan {
+    width: 100%;
+    text-align: center;
+}
+
+.steelpan img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 92dvh;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* 演奏開始ボタン：右下 */
+#prepareButton {
+    position: absolute;
+    right: 4%;
+    bottom: 17%;
+    z-index: 100;
+
+    padding: 16px 24px;
+    border: none;
+    border-radius: 12px;
+
+    background: #238636;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 戻るボタン：左下 */
+#backButton {
+    position: absolute;
+    left: 4%;
+    bottom: 17%;
+    z-index: 100;
+
+    padding: 16px 24px;
+    border: none;
+    border-radius: 12px;
+
+    background: #444;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 押したとき */
+#prepareButton:active,
+#backButton:active {
+    opacity: 0.75;
+}
+
+.pan-container {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.pan-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* 共通設定 */
+.pan-container .note {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    aspect-ratio: 1;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    touch-action: manipulation;
+    cursor: pointer;
+    touch-action: none;
+}
+
+/* 外側：一番大きいボタン */
+.pan-container .note.outer-note {
+    width: 5.4%;
+}
+
+/* 内側：一番小さいボタン */
+.pan-container .note.inner-note {
+    width: 3.9%;
+}
+
+/* さらに内側：中くらいのボタン */
+.pan-container .note.middle-note {
+    width: 4.5%;
+}

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="play.css">
+    <script src="script.js" defer></script>
+    <title>play</title>
+</head>
+
+<body>
+    <!-- <div class="musicsheet">
+        <select name="songs" id="songs">
+            <option value="label">Choose a song:</option>
+            <option value="volvo">Song_001 C major scale</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+        </select>
+
+    </div>
+    <div> <img src="music/SP-001 - Score.png" alt=""></div> -->
+
+    <!-- 準備ボタン：右下に配置 -->
+    <button id="prepareButton" onclick="prepareSounds()">
+        演奏を開始する
+    </button>
+
+    <!-- 戻るボタン：左下に配置 -->
+    <a href="index.html" id="backButton">← 戻る</a>
+
+    <div class="steelpan">
+        <div class="pan-container">
+            <img src="img/haikei.jpg" alt="LowCTenorPan">
+
+            <p>浜松市楽器博物館×先端情報学実習(杉山研究室)</p>
+
+            <!--外側の円のボタン-->
+            <!-- ド -->
+            <button type="button" class="note outer-note" style="left: 50.3%; top: 75.4%;" data-note="C"
+                aria-label="ド"></button>
+
+            <!-- ファ -->
+            <button type="button" class="note outer-note" style="left: 40.45%; top: 68.5%;" data-note="F"
+                aria-label="ファ"></button>
+
+            <!-- ラ♯(Bb) -->
+            <button type="button" class="note outer-note" style="left: 35.55%; top: 55.5%;" data-note="A#"
+                aria-label="ラシャープ"></button>
+
+            <!-- レ♯(Eb) -->
+            <button type="button" class="note outer-note" style="left: 33.7%; top: 40.5%;" data-note="D#"
+                aria-label="レシャープ"></button>
+
+            <!-- ソ♯ -->
+            <button type="button" class="note outer-note" style="left: 37.4%; top: 26%;" data-note="G#"
+                aria-label="ソシャープ"></button>
+
+            <!-- ド♯ -->
+            <button type="button" class="note outer-note" style="left: 44.95%; top: 16%;" data-note="C#"
+                aria-label="ドシャープ"></button>
+
+            <!-- ファ♯ -->
+            <button type="button" class="note outer-note" style="left: 53.6%; top: 13.9%;" data-note="F#"
+                aria-label="ファシャープ"></button>
+
+            <!-- シ -->
+            <button type="button" class="note outer-note" style="left: 61.4%; top: 18.5%;" data-note="B"
+                aria-label="シ"></button>
+
+            <!-- ミ -->
+            <button type="button" class="note outer-note" style="left: 66.85%; top: 27.8%;" data-note="E"
+                aria-label="ミ"></button>
+
+            <!-- ラ -->
+            <button type="button" class="note outer-note" style="left: 69.85%; top: 44%;" data-note="A"
+                aria-label="ラ"></button>
+
+            <!-- レ -->
+            <button type="button" class="note outer-note" style="left: 68.5%; top: 59%;" data-note="D"
+                aria-label="レ"></button>
+
+            <!-- ソ -->
+            <button type="button" class="note outer-note" style="left: 60.6%; top: 71.8%;" data-note="G"
+                aria-label="ソ"></button>
+
+            <!--内側の円のボタン-->
+            <!-- 内側のド -->
+            <button type="button" class="note inner-note" style="left: 51.5%; top: 65%;" data-note="HighC"
+                aria-label="ド"></button>
+
+            <!-- 内側のファ -->
+            <button type="button" class="note inner-note" style="left: 45.5%; top: 61.5%;" data-note="HighF"
+                aria-label="高いファ"></button>
+
+            <!-- 内側のラ＃（HigfBb） -->
+            <button type="button" class="note inner-note" style="left: 42.2%; top: 53.35%;" data-note="HighA#"
+                aria-label="ラシャープ"></button>
+
+            <!-- 内側のレ♯（HighEb） -->
+            <button type="button" class="note inner-note" style="left: 41.65%; top: 43.8%;" data-note="HighD#"
+                aria-label="高いレシャープ"></button>
+
+            <!-- 内側のソ♯（HighG#） -->
+            <button type="button" class="note inner-note" style="left: 43.63%; top: 34.3%;" data-note="HighG#"
+                aria-label="高いソシャープ"></button>
+
+            <!-- 内側のド♯（HighC#） -->
+            <button type="button" class="note inner-note" style="left: 48%; top: 28.27%;" data-note="HighC#"
+                aria-label="高いドシャープ"></button>
+
+            <!-- 内側のファ♯（HighF#） -->
+            <button type="button" class="note inner-note" style="left: 52.85%; top: 27.1%;" data-note="HighF#"
+                aria-label="高いファシャープ"></button>
+
+            <!-- 内側のシ（HighB） -->
+            <button type="button" class="note inner-note" style="left: 57.47%; top: 29%;" data-note="HighB"
+                aria-label="高いシ"></button>
+
+            <!-- 内側のミ（HighE） -->
+            <button type="button" class="note inner-note" style="left: 61.2%; top: 35.3%;" data-note="HighE"
+                aria-label="高いミ"></button>
+
+            <!-- 内側のラ（HighA） -->
+            <button type="button" class="note inner-note" style="left: 62.27%; top: 43.75%;" data-note="HighA"
+                aria-label="高いラ"></button>
+
+            <!-- 内側のレ（HighD） -->
+            <button type="button" class="note inner-note" style="left: 62%; top: 53.72%;" data-note="HighD"
+                aria-label="高いレ"></button>
+
+            <!-- 内側のソ（HighG） -->
+            <button type="button" class="note inner-note" style="left: 57.5%; top: 61%;" data-note="HighG"
+                aria-label="高いソ"></button>
+
+            <!--さらに内側の円のボタン(円の大きさはmiddle)-->
+            <!-- さらに内側のド（DblHighC） -->
+            <button type="button" class="note middle-note" style="left: 51.37%; top: 55%;" data-note="DblHighC"
+                aria-label="さらに高いド"></button>
+
+            <!-- さらに内側のレ♯（DblHighEb） -->
+            <button type="button" class="note middle-note" style="left: 46.95%; top: 47.4%;" data-note="DblHighD#"
+                aria-label="さらに高いレシャープ"></button>
+
+            <!-- さらに内側のド♯（DblHighC#） -->
+            <button type="button" class="note middle-note" style="left: 49.9%; top: 37.3%;" data-note="DblHighC#"
+                aria-label=" さらに高いドシャープ"></button>
+
+            <!-- さらに内側のミ（DblHighE） -->
+            <button type="button" class="note middle-note" style="left: 55.9%; top: 39.32%;" data-note="DblHighE"
+                aria-label=" さらに高いミ"></button>
+
+            <!-- さらに内側のレ（DblHighD） -->
+            <button type="button" class="note middle-note" style="left: 56.55%; top: 49.43%;" data-note="DblHighD"
+                aria-label=" さらに高いレ"></button>
+
+        </div>
+    </div>
+
+
+    <audio preload="auto" id="A">
+        <source src="sound/A.mp3" type="audio/mp3">
+    </audio>
+
+    <audio preload="auto" id="B">
+        <source src="sound/B.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="A#">
+        <source src="sound/Bb.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="C">
+        <source src="sound/C.mp3" type="audio/mp3">
+        <p>Your browser is not supported.Try on Google Chrome.</p>
+    </audio>
+    <audio preload="auto" id="C#">
+        <source src="sound/Csharp.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="D">
+        <source src="sound/D.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="D#">
+        <source src="sound/Eb.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="E">
+        <source src="sound/E.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="F">
+        <source src="sound/F.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="F#">
+        <source src="sound/Fsharp.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="G">
+        <source src="sound/G.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="G#">
+        <source src="sound/Gsharp.mp3" type="audio/mp3">
+    </audio>
+
+    <audio preload="auto" id="HighA">
+        <source src="sound/HighA.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="HighB">
+        <source src="sound/HighB.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="HighA#">
+        <source src="sound/HighBb.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="HighC">
+        <source src="sound/HighC.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="HighC#">
+        <source src="sound/HighCsharp.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="HighD">
+        <source src="sound/HighD.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="HighD#">
+        <source src="sound/HighEb.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="HighE">
+        <source src="sound/HighE.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="HighF">
+        <source src="sound/HighF.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="HighF#">
+        <source src="sound/HighFsharp.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="HighG">
+        <source src="sound/HighG.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="HighG#">
+        <source src="sound/HighGsharp.mp3" type="audio/mp3">
+    </audio>
+
+    <audio preload="auto" id="DblHighC">
+        <source src="sound/DblHighC.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="DblHighC#">
+        <source src="sound/DblHighCsharp.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="DblHighD">
+        <source src="sound/DblHighD.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="DblHighD#">
+        <source src="sound/DblHighEb.mp3" type="audio/mp3">
+    </audio>
+    <audio preload="auto" id="DblHighE">
+        <source src="sound/DblHighE.mp3" type="audio/mp3">
+    </audio>
+
+</body>
+
+</html>
