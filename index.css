@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100dvh;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #a9c9d5;
+}
+
+/* トップ画面全体 */
+.top-container {
+    position: relative;
+
+    width: min(100vw, 177.78dvh);
+    height: min(100dvh, 56.25vw);
+
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+/* 背景画像 */
+.top-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+/* 楽器を知るボタン */
+.history-button {
+    position: absolute;
+    left: 9.4%;
+    top: 43.15%;
+    width: 35.1%;
+    height: 36.2%;
+}
+
+/* 演奏するボタン */
+.play-button {
+    position: absolute;
+    left: 55.4%;
+    top: 43.15%;
+    width: 35.1%;
+    height: 36.2%;
+}
+
+/* タブレット横向き */
+@media screen and (min-width: 600px) and (max-width: 1200px) and (orientation: landscape) {
+
+    .top-container {
+        width: 100%;
+        height: 100dvh;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .top-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+/* 文字や背景の選択禁止 */
+body,
+a,
+img {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+img,
+a {
+    -webkit-user-drag: none;
+}
+
+/* 画面を固定してスクロール禁止 */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.top-container {
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+}

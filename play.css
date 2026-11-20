@@ -1,0 +1,190 @@
+.steelpan {
+    width: 100%;
+    text-align: center;
+}
+
+.steelpan img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 92dvh;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* 演奏開始ボタン：右下 */
+#prepareButton {
+    position: absolute;
+    right: 2%;
+    bottom: 12%;
+    z-index: 100;
+
+    padding: 16px 24px;
+    border: none;
+    border-radius: 12px;
+
+    background: #238636;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 戻るボタン：左下 */
+#backButton {
+    position: absolute;
+    left: 2%;
+    bottom: 12%;
+    z-index: 100;
+
+    padding: 16px 24px;
+    border: none;
+    border-radius: 12px;
+
+    background: #444;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 戻るボタン：タップ時も下線を表示しない */
+#backButton,
+#backButton:link,
+#backButton:visited,
+#backButton:hover,
+#backButton:active,
+#backButton:focus {
+    text-decoration: none !important;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 拡大縮小ボタン：右上 */
+#zoomButton {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 9999;
+
+    padding: 10px 18px;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#pageContent {
+    transform: scale(1);
+    transform-origin: center 5%;
+    transition: transform 0.2s ease;
+    width: 100%;
+}
+
+/* 押したとき */
+#prepareButton:active,
+#backButton:active {
+    opacity: 0.75;
+}
+
+.pan-container {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.pan-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* 共通設定 */
+.pan-container .note {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    aspect-ratio: 1;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+/* 外側：一番大きいボタン */
+.pan-container .note.outer-note {
+    width: 5.4%;
+}
+
+/* 内側：一番小さいボタン */
+.pan-container .note.inner-note {
+    width: 3.9%;
+}
+
+/* さらに内側：中くらいのボタン */
+.pan-container .note.middle-note {
+    width: 4.5%;
+}
+
+/* 文字や背景の選択禁止 */
+body,
+a,
+img {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+img,
+a {
+    -webkit-user-drag: none;
+}
+
+/* ダブルタップによる画面拡大を防止 */
+button,
+a {
+    touch-action: manipulation;
+}
+
+/* ボタンのダブルタップによる画面拡大を防止 */
+#prepareButton,
+#backButton,
+#zoomButton,
+.pan-container .note {
+    touch-action: manipulation !important;
+}
+
+#prepareButton {
+    touch-action: none !important;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* 拡大時のボタン位置 */
+#prepareButton.zoomed,
+#backButton.zoomed {
+    position: fixed;
+    bottom: 2% !important;
+}
+
+/* 縦横スクロールを禁止 */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
+/* 拡大中は画面のスクロールを禁止 */
+body.zoomed {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
